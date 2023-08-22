@@ -1,0 +1,28 @@
+/* Reset some default styles */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body 
+{
+    font-family: Arial, sans-serif;
+    background-color: #404041;
+    color: white;
+}
+
+/* Main Content Styles */
+.main {
+    padding: 20px;
+}
+
+.intro {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.games {
+    padding: 20px;
+}
+
+
