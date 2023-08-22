@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dés 2D</title>
+    <style>
+        /* Vos styles CSS ici */
+        .dice {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+            border: 1px solid #000;
+            background-color: #fff;
+            position: relative;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #000;
+            position: absolute;
+        }
+
+        .filled {
+            display: block;
+        }
+
+        .empty {
+            display: none;
+        }
+
+        .game {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Le Jeu du Bizkit</h1>
+    </header>
+    <main>
+        <section class="game">
+            <h2>Le Bizkit</h2>
+            <p id="instructions">Cliquez sur le bouton pour lancer les dés et découvrir votre action !</p>
+            <div id="diceContainer">
+                <div class="dice" id="dice1">
+                    <!-- Les côtés du dé ici -->
+                </div>
+                <div class="dice" id="dice2">
+                    <!-- Les côtés du dé ici -->
+                </div>
+            </div>
+            <button id="rollDiceButton">Lancer les dés</button>
+            <p id="actionResult"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Le Jeu du Bizkit. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() 
+        {
+            const rollDiceButton = document.getElementById('rollDiceButton');
+            const actionResult = document.getElementById('actionResult');
+            const dice1 = document.getElementById('dice1');
+            const dice2 = document.getElementById('dice2');
+            const diceValues = [1, 2, 3, 4, 5, 6];
+
+            rollDiceButton.addEventListener('click', function() 
+            {
+                const dice1Value = rollDice();
+                const dice2Value = rollDice();
+
+                const result = determineAction(dice1Value + dice2Value);
+                actionResult.textContent = result;
+
+                // Afficher les dés correspondants
+                displayDice(dice1, dice1Value);
+                displayDice(dice2, dice2Value);
+
+                instructions.textContent = "Cliquez sur le bouton pour relancer les dés !";
+            });
+
+            function rollDice() 
+            {
+                return diceValues[Math.floor(Math.random() * diceValues.length)];
+            }
+
+            function displayDice(diceElement, value) 
+            {
+                diceElement.innerHTML = ''; // Effacer le contenu précédent
+
+                const dots = 
+                [
+                    [0, 0, 0, 0, 1, 0, 0, 0, 0], // 1
+                    [1, 0, 0, 0, 0, 0, 0, 0, 1], // 2
+                    [1, 0, 0, 0, 1, 0, 0, 0, 1], // 3
+                    [1, 0, 1, 0, 0, 0, 1, 0, 1], // 4
+                    [1, 0, 1, 0, 1, 0, 1, 0, 1], // 5
+                    [1, 1, 1, 0, 0, 0, 1, 1, 1]  // 6
+                ];
+
+                const dice = dots[value - 1];
+                for (let i = 0; i < 9; i++) 
+                {
+                    const dot = document.createElement('div');
+                    dot.className = 'dot ' + (dice[i] ? 'filled' : 'empty');
+                    diceElement.appendChild(dot);
+                }
+            }
+
+            function determineAction(totalValue) {
+                // Logique pour déterminer l'action basée sur la somme des dés
+            }
+        });
+    </script>
+
+</body>
+
+</html>
