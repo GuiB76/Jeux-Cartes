@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Le Jeu du Bizkit</title>
+        <style>
+            /* Styles CSS ici */
+        </style>
+    </head>
+
+    <body>
+
+        <header>
+            <h1>Le Jeu du Bizkit</h1>
+        </header>
+
+        <main>
+            <section class="game">
+                <h2>Le Bizkit</h2>
+                <p id="instructions"> Cliquez sur le bouton pour lancer les dés et découvrir votre action ! </p>
+                <button id="rollDiceButton"> Lancer les dés </button>
+                <p id="actionResult"></p>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 Le Jeu du Bizkit. Tous droits réservés.</p>
+        </footer>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() 
+            {
+                const rollDiceButton = document.getElementById('rollDiceButton');
+                const actionResult = document.getElementById('actionResult');
+                const instructions = document.getElementById('instructions');
+                const diceValues = [1, 2, 3, 4, 5, 6];
+
+                rollDiceButton.addEventListener('click', function() 
+                {
+                    const dice1Value = rollDice();
+                    const dice2Value = rollDice();
+                    const totalValue = dice1Value + dice2Value;
+
+                    const result = determineAction(totalValue);
+                    actionResult.textContent = result;
+                    instructions.textContent = "Cliquez sur le bouton pour relancer les dés !";
+                });
+
+                function rollDice() 
+                {
+                    return diceValues[Math.floor(Math.random() * diceValues.length)];
+                }
+
+                function determineAction(totalValue) 
+                {
+                    if (totalValue === 6) {
+                        return "Le joueur précédent boit 1 gorgée, le joueur actuel rejoue.";
+                    } else if (totalValue === 7) {
+                        return "Le dernier joueur à dire 'BIZKIT' et à mettre son pouce sur le front boit 1 gorgée, le joueur actuel rejoue.";
+                    } else if (totalValue === 8) {
+                        return "Le joueur suivant boit 1 gorgée, le joueur actuel rejoue.";
+                    } else if (dice1Value === dice2Value) {
+                        const gorgées = dice1Value * 2;
+                        return `Le joueur distribue ${gorgées} gorgées à ses camarades. Le joueur actuel rejoue.`;
+                    } else if (totalValue === 3) {
+                        return "Le joueur qui obtient un 3 sur l'un des dés devient le Bizu. Il doit boire une gorgée chaque fois qu'un autre joueur obtient un 3. Le Bizu est remis en jeu quand le joueur initial obtient à nouveau un 3.";
+                    } else if (totalValue === 21) {
+                        // Vous devrez ajouter la logique pour le 21 ici
+                    } else {
+                        return "L'action dépend du résultat obtenu.";
+                    }
+                }
+            });
+        </script>
+
+    </body>
+
+</html>

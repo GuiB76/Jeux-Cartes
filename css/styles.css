@@ -1,47 +1,46 @@
 /* Reset some default styles */
 body, h1, h2, h3, p, ul, li {
     margin: 0;
-    padding: 0;
+    /* padding: 0; */
 }
-
 body 
 {
     font-family: Arial, sans-serif;
     background-color: #404041;
     color: white;
 }
+h1 { text-align: center;}
 
 /* Main Content Styles */
-.main {
-    padding: 20px;
-}
+main { padding: 20px; max-width: 1200px; }
+.intro { text-align: center; padding: 50px 0; }
 
-.intro {
-    text-align: center;
-    padding: 50px 0;
+/* SECTIONS DE PRESENTATION DES JEUX */
+.games 
+{
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 20px; padding: 20px; text-align: center;
 }
-
-.games {
-    padding: 20px;
+.games-h2 { display: flex; text-align: center;}
+.game-block 
+{
+    border: 2px solid #ccc; padding: 20px; cursor: pointer;
+    margin-bottom: 20px; transition: border-color 0.3s ease;
 }
-
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 20px;
+.game-block:hover { border-color: #666; }
+.game-details { display: none; margin-top: 10px; }
+.games-button 
+{
+    display: inline-block; padding: 10px 20px; background-color: #ffffff;
+    color: #000000; border: none; border-radius: 1px; text-align: center;
+    font-size: 16px; cursor: pointer; transition: background-color 0.3s ease;
 }
+.games-button>a {  text-decoration: none; color: #000000;}
+.games-button:hover { scale: 1.2; }
 
-th, td {
-    border: 1px solid white;
-    padding: 8px;
-    text-align: left;
-}
 
-th {
-    background-color: #404041;
-}
-
-tr:nth-child(even) {
-    background-color: #404041;
-}
+/* TABLEAU DES COMBINAISONS */
+table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+th, td { border: 1px solid white; padding: 8px; text-align: left; }
+th { background-color: #404041; }
+tr:nth-child(even) { background-color: #404041; }

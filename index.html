@@ -12,6 +12,7 @@
         <!-- SCRIPTS -->
         <script src="header/header.js"></script>
         <script src="footer/footer.js"></script>
+        <script src="script.js"></script>
         <!-- TITRE -->
         <title> Tu Bois Trop </title>
     </head>
@@ -29,7 +30,7 @@
                     <ul class="submenu">
                         <li><a href="#" id="Tchoytchoy-link">TchoyTchoy</a></li>
                         <li><a href="#" id="PMU-link">PMU</a></li>
-                        <li><a href="#" id="Bizkit-link">Biskit</a></li>
+                        <li><a href="#" id="Bizkit-link">Bizkit</a></li>
                         <li><a href="#" id="Menteur-link">Menteur</a></li>
                         <li><a href="#" id="JeuDu7-link">Jeu du 7</a></li>
                         <li><a href="#" id="LeCarré-link">Le Carré</a></li>
@@ -44,100 +45,79 @@
 
         <!-- MAIN & CONTENU -->
         <main>
+
             <section class="intro">
-                <h1>Bienvenue, Tu Bois Trop</h1>
+                <h1>Bienvenue man, Tu Bois Trop</h1>
+                <br>
                 <p>Découvre une variété de jeux d'alcool pour animer tes soirées.</p>
             </section>
+
             <section class="games">
-                <h2>Nos Jeux</h2>
-                <p>Listing de nos jeux d'alcool des plus sympathiques :</p>
-                <ul>
-                    <li>TchoyTchoy</li>
-                    <li>PMU</li>
-                    <li>Bizkit</li>
-                    <li>Menteur</li>
-                    <li>Jeu du 7</li>
-                    <li>Le Carré</li>
-                </ul>
+                <h2 class="games-h2"> Nos Jeux </h2>
+                <div class="games">
+                    <div class="game-block" id="tchoytchoy">
+                        <h2>TchoyTchoy</h2>
+                        <div class="game-details">
+                        </div>
+                    </div>
+                    <div class="game-block" id="pmu">
+                        <h2>PMU</h2>
+                        <div class="game-details">
+                            <!-- Les explications du jeu ici -->
+                        </div>
+                    </div>
+                    <div class="game-block" id="bizkit">
+                        <h2> Le Bizkit </h2>
+                        <div class="game-details">
+                            <div>
+                                <p>
+                                    <strong> Un Jeu Rafraîchissant pour Animer vos Soirées ! </strong>
+                                    <br><br> Plongez dans l'univers captivant du Bizkit, un jeu d'alcool qui transforme chaque gorgée en une expérience pleine de fun et de surprises. 
+                                    <br><br> Découvrez comment ce jeu simple à comprendre mais hautement divertissant peut ajouter une dose d'excitation à vos soirées entre amis.
+                                    <br><br>
+                                    <strong> Préparation et Matériel : </strong>
+                                    <br><br> Pour jouer au Bizkit, rassemblez vos amis, un cœur vaillant et deux dés. Installez-vous autour d'une table, prêts à faire tourner les dés et à relever les défis qui se présentent.
+                                    <br><br>
+                                    <strong> Lancer les Dés et Révéler les Actions : </strong>
+                                    <br><br> Le jeu commence par le choix d'un sens de jeu. À tour de rôle, chaque joueur lance les dés pour découvrir quelle action les attend. Les combinaisons des dés dictent les actions à accomplir, garantissant que chaque tour est unique et amusant. 
+                                    <br><br>
+                                    <strong> Une Expérience de Jeu Unique </strong>
+                                    <br><br> Le Bizkit offre une expérience de jeu unique et amusante, où chaque lancé de dés peut transformer l'atmosphère de votre soirée. À la croisée du hasard et de la stratégie, ce jeu vous promet des moments inoubliables et des fous rires garantis.
+                                    <br><br> Préparez-vous à vivre des aventures gorgées de rires et de convivialité avec le Bizkit, le jeu d'alcool qui réunit amis et défis autour de la table !
+                                </p>
+                            </div>
+                            <br>
+                            <button class="games-button">
+                                <a href="bizkit-explications.html"> Le Bizkit Explications </a>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-block" id="menteur">
+                        <h2>Menteur</h2>
+                        <div class="game-details">
+                            <!-- Les explications du jeu ici -->
+                        </div>
+                    </div>
+                    <div class="game-block" id="jeu-du-7">
+                        <h2>Jeu du 7</h2>
+                        <div class="game-details">
+                            <!-- Les explications du jeu ici -->
+                        </div>
+                    </div>
+                    <div class="game-block" id="le-carre">
+                        <h2>Le Carré</h2>
+                        <div class="game-details">
+                            <!-- Les explications du jeu ici -->
+                        </div>
+                    </div>
+                </div>
             </section>
 
-            <br><br>
-
-            <section>
-                <h2> Le Bizkit </h2>
-                <br>
-                <p> 
-                    Avant tout, afin de clarifier les choses, rappelons que chaque jeu d'alcool tourne autour des "gorgées". 
-                    En effet, une bière se découpe en 4 gorgées alors qu'une boisson plus forte doit être sirotée en 8.
-                </p>
-                <br>
-                <h3> Le matériel à avoir : </h3>
-                <br>
-                <ul>
-                    <li> 2 dés </li>
-                    <li> Un cœur vaillant </li>
-                    <li> Un foi solide </li>
-                </ul>
-                <br>
-                <p> Choisissez une direction de jeu et, chacun à son tour, lancez les dés. </p>
-                <br>
-                <h3> Les combinaisons avec les dés : </h3>
-                <table>
-                    <tr>
-                        <th> Combinaisons </th>
-                        <th> Actions </th>
-                    </tr>
-                    <tr>
-                        <td> 3 </td>
-                        <td>
-                            Le Bizu. Le joueur devient le bizu et doit boire une gorgée chaque fois qu'un autre joueur obtient un 3. 
-                            <br>Le Bizu est remis en jeu quand le joueur initial obtient à nouveau un 3.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> 6 </td>
-                        <td>
-                            Le joueur précédent boit 1 gorgée, le joueur actuel rejoue. 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> 7 </td>
-                        <td>
-                            Le dernier joueur à dire "BIZKIT" et à mettre son pouce sur le front boit 1 gorgée, le joueur actuel rejoue.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> 8 </td>
-                        <td>
-                            Le joueur suivant boit 1 gorgée, le joueur actuel rejoue.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> Un double </td>
-                        <td>
-                            Le joueur distribue le nombre de gorgées du double ( double 4 = 4 gorgées ) à ses camarades. 
-                            <br> Le joueur actuel rejoue.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> Le 21 ( 2 + 1 = 3 ) </td>
-                        <td> 
-                            Le joueur rejoue. 
-                            <br> La somme des dés désigne le joueur qui devra prendre cul sec.
-                            <br> Exemple : 3 + 5 = 8. Le 8ème joueur dans l'odre de jeu, après le lanceur de dés, prend cul sec (lanceur compris).
-                        </td>
-                    </tr>
-                </table>
-                <p> Dés en main, à vos marques, lancez ! </p>
-            </section>
-            <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> 
-            <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> 
-            <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
         </main>
 
         <!-- FOOTER & MENTIONS LEGALES -->
         <footer>
-            <p>&copy; 2023 Jeux d'Alcool. Tous droits réservés.</p>
+            <p> &copy; 2023 LesCouillesDansLeau. Tous droits réservés. </p>
         </footer>
 
     </body>
