@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Dice Rolling</title>
+    <style>
+        body { margin: 0; overflow: hidden; }
+    </style>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        let scene, camera, renderer, dice;
+
+        function init() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
+
+            // Create dice model
+            const geometry = new THREE.BoxGeometry(1, 1, 1);
+            const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
+            dice = new THREE.Mesh(geometry, material);
+            scene.add(dice);
+
+            // Position camera
+            camera.position.z = 5;
+
+            // Handle mobile movement
+            window.addEventListener('deviceorientation', handleDeviceOrientation);
+        }
+
+        function handleDeviceOrientation(event) {
+            if (!dice) return;
+
+            const { beta, gamma } = event;
+            dice.rotation.x = (beta - 90) * Math.PI / 180;
+            dice.rotation.y = gamma * Math.PI / 180;
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+        }
+
+        init();
+        animate();
+    </script>
+</body>
+</html>

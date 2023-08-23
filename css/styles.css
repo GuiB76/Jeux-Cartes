@@ -41,8 +41,16 @@ main { padding: 20px; max-width: 1200px; }
 .games-button:hover { scale: 1.2; }
 
 
-/* TABLEAU DES COMBINAISONS */
+/* TABLEAU DES COMBINAISONS DES JEUX*/
 table { border-collapse: collapse; width: 100%; margin-top: 20px; }
 th, td { border: 1px solid white; padding: 8px; text-align: left; }
 th { background-color: #404041; }
 tr:nth-child(even) { background-color: #404041; }
+
+
+/* BIZKIT */
+.bizkit-game { gap: 20px; padding: 20px; text-align: center; scale: 1.2; }
+
+
+
+

@@ -111,78 +111,48 @@
 
                 function determineAction(dice1Value, dice2Value, totalValue) 
                 {
-                    if (totalValue === 6)
+                    switch (totalValue) 
                     {
-                        if(dice1Value !== dice2Value)
-                        {
-                            const gorgées = 1;
-                            return "Le joueur précédent boit 1 gorgée.";
-                        }
-                        else if(dice1Value === dice2Value) 
-                        {
-                            const gorgées = dice1Value;
-                            document.getElementById('actionName').textContent = "DOUBLE";
-                            return `Le joueur distribue ${gorgées} gorgées et relance.`;
-                        }
-                        else if(dice1Value === 5 && dice2Value === 1) 
-                        {
-                            const gorgées = 1;
-                            return `51 - Tout le monde boit une gorgée.`;
-                        }
-                        else if(dice1Value === 1 && dice2Value === 5) 
-                        {
-                            const gorgées = 1;
-                            return `51 - Tout le monde boit une gorgée.`;
-                        }
-                    } 
-                    else if (totalValue === 7) 
-                    {
-                        const gorgées = 1;
-                        return "BIZKIT - Le dernier joueur à dire 'BIZKIT' et à mettre son pouce sur le front boit 1 gorgée, le joueur actuel rejoue.";
-                    } 
-                    else if (totalValue === 8)
-                    {
-                        if(dice1Value !== dice2Value)
-                        {
-                            const gorgées = 1;
-                            return "Le joueur suivant boit 1 gorgée.";
-                        }
-                        else if(dice1Value === dice2Value) 
-                        {
-                            const gorgées = dice1Value;
-                            return `Le joueur distribue ${gorgées} gorgées et relance.`;
-                        }
-                    }
-                    else if (totalValue === 9) 
-                    {
-                        return "Le joueur invente une règle.";
-                    }
-                    else if (totalValue === 10) 
-                    {
-                        return "J'ai dans ma valise ...";
-                    } 
-                    else if (dice1Value === dice2Value) 
-                    {
-                        const gorgées = dice1Value;
-                        document.getElementById('actionName').textContent = "DOUBLE";
-                        return `Le joueur distribue ${gorgées} gorgées et relance.`;
-                    }
-                    else if (totalValue === 3) 
-                    {
-                        const gorgées = 1;
-                        document.getElementById('actionName').textContent = "BIZU";
-                        return "Le joueur qui obtient un 3 sur l'un des dés devient le Bizu. Il doit boire une gorgée chaque fois qu'un autre joueur obtient un 3. Le Bizu est remis en jeu quand le joueur initial obtient à nouveau un 3.";
-                    } 
-                    else if (totalValue === 21) 
-                    {
-                        // Vous devrez ajouter la logique pour le 21 ici
-                    } 
-                    else 
-                    {
-                        return "Rien, au joueur suivant.";
+                        // 1 + ...
+                        case 2:
+                            if (dice1Value === 1 && dice2Value === 1) 
+                            {
+                                document.getElementById('actionName').textContent = "DOUBLE 1";
+                                return "Le joueur distribue 1 gorgée.";
+                            } 
+                            else if (dice1Value === 1 && dice2Value === 2) 
+                            {
+                                totalValue = 21;
+                                document.getElementById('actionName').textContent = "21";
+                                return "Le joueur relance les dés. Son prochain lancé correspond au joueur qui boira cul sec.";
+                            }
+                            else if (dice1Value === 1 && dice2Value === 3) 
+                            {
+                                document.getElementById('actionName').textContent = "RIEN";
+                                return "Au joueur suivant.";
+                            }
+                            else if (dice1Value === 1 && dice2Value === 4) 
+                            {
+                                document.getElementById('actionName').textContent = "RIEN";
+                                return "Au joueur suivant.";
+                            }
+                            else if (dice1Value === 1 && dice2Value === 5) 
+                            {
+                                totalValue = 51;
+                                document.getElementById('actionName').textContent = "51";
+                                return "Tournée Générale, tout le monde boit 1 gorgée.";
+                            }
+                            else if (dice1Value === 1 && dice2Value === 6) 
+                            {
+                                document.getElementById('actionName').textContent = "BIZKIT";
+                                return "Le dernier joueur à dire BIZKIT et mettre son pouce sur son nez boit 1 gorgée.";
+                            }
+                            // Continuez pour les autres combinaisons
+                            break;
                     }
                 }
             });
+
         </script>
 
     </body>

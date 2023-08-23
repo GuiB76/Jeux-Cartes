@@ -1,0 +1,42 @@
+1 + 1 = DOUBLE 1    : Le joueur distribue 1 gorgée
+1 + 2 = 21          : Le joueur relance et son prochain lancé correspond au joueur qui boira cul sec
+1 + 3 = 4           : rien
+1 + 4 = 5           : rien
+1 + 5 = 51          : Tout le monde boit 1 gorgée
+1 + 6 = 7           : BIZKIT
+
+2 + 1 = 21          : Le joueur relance et son prochain lancé correspond au joueur qui boire cul sec
+2 + 2 = DOUBLE 2    : le joueur distribue 2 gorgées
+2 + 3 = 5           : rien
+2 + 4 = 6           : Le joueur précédent boit 1 gorgée
+2 + 5 = 7           : BIZKIT
+2 + 6 = 8           : Le joueur suivant boit 1 gorgée
+
+3 + 1 = 4           : rien
+3 + 2 = 5           : rien
+3 + 3 = DOUBLE 3    : Le joueur distribue 3 gorgées
+3 + 4 = 7           : BIZKIT
+3 + 5 = 8           : Le joueur suivant boit 1 gorgée
+3 + 6 = 9           : Le joueur invente une règle
+
+4 + 1 = 5           : rien
+4 + 2 = 6           : Le joueur précédent boit 1 gorgée
+4 + 3 = 7           : BIZKIT
+4 + 4 = DOUBLE 4    : Le joueur suivant boit 1 gorgée
+4 + 5 = 9           : Le joueur invente une règle
+4 + 6 = 10          : J'ai dans ma valise...
+
+5 + 1 = 51          : Tout le monde boit 1 gorgée
+5 + 2 = 7           : BIZKIT
+5 + 3 = 8           : Le joueur suivant boit 1 gorgée
+5 + 4 = 9           : Le joueur invente une règle
+5 + 5 = DOUBLE 5    : Le joueur distribue 5 gorgées
+5 + 6 = 11          : Un thème
+
+6 + 1 = 7           : BIZKIT
+6 + 2 = 8           : Le joueur suivant boit 1 gorgée
+6 + 3 = 9           : Le joueur invente une règle
+6 + 4 = 10          : J'ai dans ma valise...
+6 + 5 = 11          : Un thème
+6 + 6 = DOUBLE 6    : Le joueur distribue 6 gorgées
+
