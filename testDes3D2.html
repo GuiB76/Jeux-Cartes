@@ -8,59 +8,78 @@
     body { margin: 0; overflow: hidden; }
   </style>
   <script type="module">
-       import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.module.min.js';
+    import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.module.min.js';
     import { OrbitControls } from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/110/jsm/controls/OrbitControls.js';
 
-        let scene, camera, renderer;
-        let dice1, dice2;
-        const diceSize = 1;
+    // Création de la scène
+    var scene = new THREE.Scene();
 
-        function init() {
-    scene = new THREE.Scene();
-
-    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    // Création de la caméra
+    var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 5;
 
-    renderer = new THREE.WebGLRenderer();
+    // Création du rendu
+    var renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
-    // Utilisation de getElementById pour obtenir le conteneur spécifique
-    document.getElementById('scene-container').appendChild(renderer.domElement);
+    document.body.appendChild(renderer.domElement);
 
-    const controls = new OrbitControls(camera, renderer.domElement);
+    // Création des deux dés
+    var geometry = new THREE.BoxGeometry(1, 1, 1);
+    var material = new THREE.MeshBasicMaterial({ color: 0xffffff });
+    var dice1 = new THREE.Mesh(geometry, material);
+    dice1.position.x = -1;
+    scene.add(dice1);
 
-    const diceGeometry = new THREE.BoxGeometry(diceSize, diceSize, diceSize);
-    const diceMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff });
+    var dice2 = new THREE.Mesh(geometry, material);
+    dice2.position.x = 1;
+    scene.add(dice2);
 
-    dice1 = new THREE.Mesh(diceGeometry, diceMaterial);
-    dice2 = new THREE.Mesh(diceGeometry, diceMaterial);
+    // Création de la texture
+    var texture = new THREE.TextureLoader().load('dice_texture.jpg');
 
-    scene.add(dice1, dice2);
-}
+    // Création du matériau avec la texture
+    var material = new THREE.MeshBasicMaterial({ map: texture });
 
-        function animate() {
-            requestAnimationFrame(animate);
+    // Création du dé avec le matériau
+    var geometry = new THREE.BoxGeometry(1, 1, 1);
+    var dice = new THREE.Mesh(geometry, material);
+    scene.add(dice);
 
-            // Lancer les dés en modifiant leur rotation
-            dice1.rotation.x += 0.05;
-            dice1.rotation.y += 0.05;
-            dice2.rotation.x += 0.05;
-            dice2.rotation.y += 0.05;
+    // Animation des dés
+    function animate() {
+        requestAnimationFrame(animate);
 
-            renderer.render(scene, camera);
-        }
+        dice1.rotation.x += 0.01;
+        dice1.rotation.y += 0.01;
 
-        window.addEventListener('resize', () => {
-            const newWidth = window.innerWidth;
-            const newHeight = window.innerHeight;
+        dice2.rotation.x += 0.01;
+        dice2.rotation.y += 0.01;
 
-            camera.aspect = newWidth / newHeight;
-            camera.updateProjectionMatrix();
+        renderer.render(scene, camera);
+    }
+    animate();
 
-            renderer.setSize(newWidth, newHeight);
-        });
 
-        init();
-        animate();
+    // Ajout d'un écouteur pour l'événement DeviceOrientationEvent
+    window.addEventListener('deviceorientation', function(event) {
+        // Récupération des données de l'accéléromètre
+        var x = event.beta; // Inclinaison avant/arrière (entre -180 et 180)
+        var y = event.gamma; // Inclinaison gauche/droite (entre -90 et 90)
+
+        // Calcul de la vitesse de rotation des dés en fonction des données de l'accéléromètre
+        var speedX = x / 10;
+        var speedY = y / 10;
+
+        // Rotation des dés en fonction de la vitesse calculée
+        dice1.rotation.x += speedX;
+        dice1.rotation.y += speedY;
+
+        dice2.rotation.x += speedX;
+        dice2.rotation.y += speedY;
+    });
+
+
+
 </script>
 </head>
 <body>

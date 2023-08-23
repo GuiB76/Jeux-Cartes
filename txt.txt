@@ -3,40 +3,403 @@
 1 + 3 = 4           : rien
 1 + 4 = 5           : rien
 1 + 5 = 51          : Tout le monde boit 1 gorgée
-1 + 6 = 7           : BIZKIT
+1 + 6 = 7           : BIZKIT - Le dernier joueur à dire BIZKIT et mettre son pouce sur son nez boit 1 gorgée.
 
 2 + 1 = 21          : Le joueur relance et son prochain lancé correspond au joueur qui boire cul sec
 2 + 2 = DOUBLE 2    : le joueur distribue 2 gorgées
 2 + 3 = 5           : rien
 2 + 4 = 6           : Le joueur précédent boit 1 gorgée
-2 + 5 = 7           : BIZKIT
+2 + 5 = 7           : BIZKIT - Le dernier joueur à dire BIZKIT et mettre son pouce sur son nez boit 1 gorgée.
 2 + 6 = 8           : Le joueur suivant boit 1 gorgée
 
 3 + 1 = 4           : rien
 3 + 2 = 5           : rien
 3 + 3 = DOUBLE 3    : Le joueur distribue 3 gorgées
-3 + 4 = 7           : BIZKIT
+3 + 4 = 7           : BIZKIT - Le dernier joueur à dire BIZKIT et mettre son pouce sur son nez boit 1 gorgée.
 3 + 5 = 8           : Le joueur suivant boit 1 gorgée
 3 + 6 = 9           : Le joueur invente une règle
 
 4 + 1 = 5           : rien
 4 + 2 = 6           : Le joueur précédent boit 1 gorgée
-4 + 3 = 7           : BIZKIT
+4 + 3 = 7           : BIZKIT - Le dernier joueur à dire BIZKIT et mettre son pouce sur son nez boit 1 gorgée.
 4 + 4 = DOUBLE 4    : Le joueur suivant boit 1 gorgée
 4 + 5 = 9           : Le joueur invente une règle
 4 + 6 = 10          : J'ai dans ma valise...
 
 5 + 1 = 51          : Tout le monde boit 1 gorgée
-5 + 2 = 7           : BIZKIT
+5 + 2 = 7           : BIZKIT - Le dernier joueur à dire BIZKIT et mettre son pouce sur son nez boit 1 gorgée.
 5 + 3 = 8           : Le joueur suivant boit 1 gorgée
 5 + 4 = 9           : Le joueur invente une règle
 5 + 5 = DOUBLE 5    : Le joueur distribue 5 gorgées
 5 + 6 = 11          : Un thème
 
-6 + 1 = 7           : BIZKIT
+6 + 1 = 7           : BIZKIT - Le dernier joueur à dire BIZKIT et mettre son pouce sur son nez boit 1 gorgée.
 6 + 2 = 8           : Le joueur suivant boit 1 gorgée
 6 + 3 = 9           : Le joueur invente une règle
 6 + 4 = 10          : J'ai dans ma valise...
 6 + 5 = 11          : Un thème
 6 + 6 = DOUBLE 6    : Le joueur distribue 6 gorgées
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <!-- META DATAS -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="header/header.css">
+        <link rel="stylesheet" href="footer/footer.css">
+        <!-- SCRIPTS -->
+        <script src="header/header.js"></script>
+        <script src="footer/footer.js"></script>
+        <!-- <script src="script.js"></script> -->
+        <!-- TITRE -->
+        <title> Le jeu du Bizkit </title>
+    </head>
+
+    <body>
+
+        <!-- HEADER & MENU NAV -->
+        <header class="header">
+            <a href="index.html" class="logo">logo</a>
+            <input class="menu-btn" type="checkbox" id="menu-btn" />
+            <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+            <ul class="menu">
+                <li class="has-submenu">
+                    <a href="#" id="NosJeux-link">Nos Jeux</a>
+                    <ul class="submenu">
+                        <li><a href="#" id="Tchoytchoy-link">TchoyTchoy</a></li>
+                        <li><a href="#" id="PMU-link">PMU</a></li>
+                        <li><a href="#" id="Bizkit-link">Bizkit</a></li>
+                        <li><a href="#" id="Menteur-link">Menteur</a></li>
+                        <li><a href="#" id="JeuDu7-link">Jeu du 7</a></li>
+                        <li><a href="#" id="LeCarré-link">Le Carré</a></li>
+                    </ul>
+                </li>
+                <li><a href="#about" id="about-link"> A propos </a></li>
+                <li><a href="#contact" id="contact-link"> Contact </a></li>
+            </ul>
+        </header>
+
+        <br><br><br><br>
+
+        <main>
+
+            <h1> Le Bizkit </h1>
+
+            <br><br>
+
+            <section class="bizkit-game">
+                <br>
+                <div class="game-block">
+                    <p id="instructions">Cliquez sur le bouton pour lancer les dés et découvrir votre action !</p>
+                    <br><br>
+                    <div class="game-block">
+                        <button id="rollDiceButton" class="games-button"> Lancer les dés </button>
+                        <br><br>
+                        <p><span id="Dice1"></span> + <span id="Dice2"></span> = <span id="DicesResults"></span></p>
+                        <br><br>
+                        <p id="displayDicesResults" style="font-size: 50px; font-weight: bold; text-align: center;"></p>
+                        <br>
+                        <p id="actionName" style="font-size: 35px; font-weight: bold;"></p>
+                        <br><br>
+                        <p id="actionResult"></p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <p>&copy; 2023 Le Jeu du Bizkit. Tous droits réservés.</p>
+        </footer>
+
+
+        <script>
+
+            document.addEventListener('DOMContentLoaded', function() 
+            {
+                const rollDiceButton = document.getElementById('rollDiceButton');
+                const actionResult = document.getElementById('actionResult');
+                const instructions = document.getElementById('instructions');
+                const diceValues = [1, 2, 3, 4, 5, 6];
+
+                rollDiceButton.addEventListener('click', function() 
+                {
+                    const dice1Value = rollDice();
+                    const dice2Value = rollDice();
+                    const totalValue = dice1Value + dice2Value;
+
+                    const result = determineAction(dice1Value, dice2Value, totalValue);
+                 
+                    // Afficher les résultats des dés après 3 secondes
+                    setTimeout(function() 
+                    {
+                        document.getElementById('Dice1').textContent = dice1Value;
+                        document.getElementById('Dice2').textContent = dice2Value;
+                        document.getElementById('DicesResults').textContent = totalValue;
+                        document.getElementById('displayDicesResults').textContent = totalValue;
+                        actionResult.textContent = result;
+                        instructions.textContent = "Cliquez sur le bouton pour relancer les dés !";
+                    }, 0.0001); // 2000 millisecondes (2 secondes)
+                });
+
+                function rollDice() 
+                {
+                    return diceValues[Math.floor(Math.random() * diceValues.length)];
+                }
+
+                function determineAction(dice1Value, dice2Value, totalValue) 
+                {
+                    switch (totalValue) 
+                    {
+                        // 1 + ...
+                        case 1:
+                            if (dice1Value === 1 && dice2Value === 1) 
+                            {
+                                document.getElementById('actionName').textContent = "DOUBLE 1";
+                                return "Le joueur distribue 1 gorgée.";
+                            }
+                        break;
+                        case 2:
+                            if (dice1Value === 1 && dice2Value === 2) 
+                            {
+                                totalValue = 21;
+                                document.getElementById('actionName').textContent = "21";
+                                return "Le joueur relance les dés. Son prochain lancé correspond au joueur qui boira cul sec.";
+                            }
+                        break;
+                        case 3:
+                            if (dice1Value === 1 && dice2Value === 3) 
+                            {
+                                document.getElementById('actionName').textContent = "RIEN";
+                                return "Au joueur suivant.";
+                            }
+                        break;
+                        case 4:
+                            if (dice1Value === 1 && dice2Value === 4) 
+                            {
+                                document.getElementById('actionName').textContent = "RIEN";
+                                return "Au joueur suivant.";
+                            }
+                        break;
+                        case 5:
+                            if (dice1Value === 1 && dice2Value === 5) 
+                            {
+                                totalValue = 51;
+                                document.getElementById('actionName').textContent = "51";
+                                return "Tournée Générale, tout le monde boit 1 gorgée.";
+                            }
+                        break;
+                        case 6:
+                            if (dice1Value === 1 && dice2Value === 6) 
+                            {
+                                document.getElementById('actionName').textContent = "BIZKIT";
+                                return "Le dernier joueur à dire BIZKIT et mettre son pouce sur son nez boit 1 gorgée.";
+                            }
+                        break;
+                        // 2 + ...
+                        case 7:
+                            if (dice1Value === 2 && dice2Value === 1) 
+                            {
+                                totalValue = 21;
+                                document.getElementById('actionName').textContent = "21";
+                                return "Le joueur relance les dés. Son prochain lancé correspond au joueur qui boira cul sec.";
+                            }
+                        break;
+                        case 8: 
+                            if (dice1Value === 2 && dice2Value === 2) 
+                            {
+                                document.getElementById('actionName').textContent = "DOUBLE 2";
+                                return "Le joueur distribue 2 gorgées.";
+                            }
+                        break;
+                        case 9:
+                            if (dice1Value === 2 && dice2Value === 3) 
+                            {
+                                document.getElementById('actionName').textContent = "RIEN";
+                                return "Au joueur suivant.";
+                            }
+                        break;
+                        case 10:
+                            if (dice1Value === 2 && dice2Value === 4) 
+                            {
+                                document.getElementById('actionName').textContent = "+1 précédent";
+                                return "Le joueur précédent boit 1 gorgée.";
+                            }
+                        break;
+                        case 11:
+                            if (dice1Value === 2 && dice2Value === 5) 
+                            {
+                                document.getElementById('actionName').textContent = "BIZKIT";
+                                return "Le dernier joueur à dire BIZKIT et mettre son pouce sur son nez boit 1 gorgée.";
+                            }
+                        break;
+                        case 12:
+                            if (dice1Value === 2 && dice2Value === 6) 
+                            {
+                                document.getElementById('actionName').textContent = "+1 suivant";
+                                return "Le joueur suivant boit 1 gorgée.";
+                            }
+                        break;
+                        // 3 + ...
+                        case 4:
+                            if (dice1Value === 3 && dice2Value === 1) 
+                            {
+                                document.getElementById('actionName').textContent = "RIEN";
+                                return "Au joueur suivant.";
+                            } 
+                            else if (dice1Value === 3 && dice2Value === 2) 
+                            {
+                                document.getElementById('actionName').textContent = "RIEN";
+                                return "Au joueur suivant.";
+                            }
+                            else if (dice1Value === 3 && dice2Value === 3) 
+                            {
+                                document.getElementById('actionName').textContent = "DOUBLE 3";
+                                return "Le joueur distribue 3 gorgées.";
+                            }
+                            else if (dice1Value === 3 && dice2Value === 4) 
+                            {
+                                document.getElementById('actionName').textContent = "BIZKIT";
+                                return "Le dernier joueur à dire BIZKIT et mettre son pouce sur son nez boit 1 gorgée.";
+                            }
+                            else if (dice1Value === 3 && dice2Value === 5) 
+                            {
+                                document.getElementById('actionName').textContent = "+1 suivant";
+                                return "Le joueur suivant boit 1 gorgée.";
+                            }
+                            else if (dice1Value === 3 && dice2Value === 6) 
+                            {
+                                document.getElementById('actionName').textContent = "REGLE";
+                                return "Le joueur invente une règle.";
+                            }
+                        break;
+                        // 4 + ...
+                        case 5:
+                            if (dice1Value === 4 && dice2Value === 1) 
+                            {
+                                document.getElementById('actionName').textContent = "RIEN";
+                                return "Au joueur suivant.";
+                            } 
+                            else if (dice1Value === 4 && dice2Value === 2) 
+                            {
+                                document.getElementById('actionName').textContent = "+1 précédent";
+                                return "Le joueur précédent boit 1 gorgée.";
+                            }
+                            else if (dice1Value === 4 && dice2Value === 3) 
+                            {
+                                document.getElementById('actionName').textContent = "BIZKIT";
+                                return "Le dernier joueur à dire BIZKIT et mettre son pouce sur son nez boit 1 gorgée.";
+                            }
+                            else if (dice1Value === 4 && dice2Value === 4) 
+                            {
+                                document.getElementById('actionName').textContent = "DOUBLE 4";
+                                return "Le joueur distribue 4 gorgées.";
+                            }
+                            else if (dice1Value === 4 && dice2Value === 5) 
+                            {
+                                document.getElementById('actionName').textContent = "REGLE";
+                                return "Le joueur invente une règle.";
+                            }
+                            else if (dice1Value === 4 && dice2Value === 6) 
+                            {
+                                document.getElementById('actionName').textContent = "J'AI DANS MA VALISE...";
+                                return "Le joueur commence le jeu : J'ai dans ma valise...";
+                            }
+                        break;
+                        // 5 + ...
+                        case 6:
+                            if (dice1Value === 5 && dice2Value === 1) 
+                            {
+                                document.getElementById('actionName').textContent = "+1 précédent";
+                                return "Le joueur précédent boit 1 gorgée.";
+                            } 
+                            else if (dice1Value === 5 && dice2Value === 2) 
+                            {
+                                document.getElementById('actionName').textContent = "BIZKIT";
+                                return "Le dernier joueur à dire BIZKIT et mettre son pouce sur son nez boit 1 gorgée.";
+                            }
+                            else if (dice1Value === 5 && dice2Value === 3) 
+                            {
+                                document.getElementById('actionName').textContent = "+1 Suivant";
+                                return "Le joueur suivant boit 1 gorgée.";
+                            }
+                            else if (dice1Value === 5 && dice2Value === 4) 
+                            {
+                                document.getElementById('actionName').textContent = "REGLE";
+                                return "Le joueur invente une règle.";
+                            }
+                            else if (dice1Value === 5 && dice2Value === 5) 
+                            {
+                                document.getElementById('actionName').textContent = "DOUBLE 5";
+                                return "Le joueur distribue 5 gorgées.";
+                            }
+                            else if (dice1Value === 5 && dice2Value === 6) 
+                            {
+                                document.getElementById('actionName').textContent = "THEME";
+                                return "Le joueur choisis un mot et lance le jeu du thème.";
+                            }
+                        break;
+                        // 6 + ...
+                        case 7:
+                            if (dice1Value === 6 && dice2Value === 1) 
+                            {
+                                document.getElementById('actionName').textContent = "BIZKIT";
+                                return "Le dernier joueur à dire BIZKIT et mettre son pouce sur son nez boit 1 gorgée.";
+                            } 
+                            else if (dice1Value === 6 && dice2Value === 2) 
+                            {
+                                document.getElementById('actionName').textContent = "+1 Suivant";
+                                return "Le joueur suivant boit 1 gorgée.";
+                            }
+                            else if (dice1Value === 6 && dice2Value === 3) 
+                            {
+                                document.getElementById('actionName').textContent = "REGLE";
+                                return "Le joueur invente une règle.";
+                            }
+                            else if (dice1Value === 6 && dice2Value === 4) 
+                            {
+                                document.getElementById('actionName').textContent = "J'AI DANS MA VALISE...";
+                                return "Le joueur commence le jeu : J'ai dans ma valise...";
+                            }
+                            else if (dice1Value === 6 && dice2Value === 5) 
+                            {
+                                document.getElementById('actionName').textContent = "THEME";
+                                return "Le joueur choisis un mot et lance le jeu du thème.";
+                            }
+                            else if (dice1Value === 6 && dice2Value === 6) 
+                            {
+                                document.getElementById('actionName').textContent = "DOUBLE 6";
+                                return "Le joueur distribue 6 gorgées.";
+                            }
+                        break;
+                    }
+                }
+            });
+
+        </script>
+
+    </body>
+
+</html>
